@@ -7,7 +7,7 @@
 #include <vector>
 #include <limits>
 #include <fstream>
-#include "queue.cpp"
+//#include "queue.cpp"
 #include "gel.cpp"
 
 #define TIMEOUT_CHANCE 10 //can set chance that timeout occurs and no ACK is received, between 0 to 100
@@ -286,9 +286,16 @@ int main() {
     myfile << "Writing this to a file.\n";
     
     //initialization
+    int users = 0;
     int* k = 0; //number of collisions
     bool timeout = false;
     event* ack;
+
+    std::cout << "enter lamda value";
+    std::cin >> lamda;
+    std::cout << "enter number of users";
+    std::cin >> users;
+
 
     event* initial_event = new event(0, 0); //create arriving event
     gel_list->insert(initial_event);
